@@ -1,4 +1,4 @@
-QT += quick
+QT += qml quick sql
 
 CONFIG += c++11
 
