@@ -1,3 +1,4 @@
+#include <QStandardPaths>
 #include "database.h"
 
 database::database(QObject *parent) : QObject(parent)
@@ -11,11 +12,16 @@ database::~database(){
 
 void database::connectToDataBase()
 {
+
+    QString DatabaseDataStoragePath = QStandardPaths::writableLocation(QStandardPaths::StandardLocation::AppDataLocation);
+    qDebug()<<DatabaseDataStoragePath+"/"+DATABASE_NAME;
     /* Перед подключением к базе данных производим проверку на её существование.
      * В зависимости от результата производим открытие базы данных или её восстановление
      * */
     if(!QFile(DATABASE_NAME).exists()){
-        this->restoreDataBase();
+        QFile::copy(":/" DATABASE_NAME , DATABASE_NAME);
+        //this->openDataBase();
+        //this->restoreDataBase();
     } else {
         this->openDataBase();
     }
@@ -25,9 +31,11 @@ void database::connectToDataBase()
  * */
 bool database::restoreDataBase()
 {
+
     // Если база данных открылась ...
     if(this->openDataBase()){
         // Производим восстановление базы данных
+
         return (this->createTable()) ? true : false;
     } else {
         qDebug() << "Не удалось восстановить базу данных";
@@ -43,6 +51,8 @@ bool database::openDataBase()
     /* База данных открывается по заданному пути
      * и имени базы данных, если она существует
      * */
+
+    QString DatabaseDataStoragePath = QStandardPaths::writableLocation(QStandardPaths::StandardLocation::AppDataLocation);
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setHostName(DATABASE_HOSTNAME);
     db.setDatabaseName(DATABASE_NAME);
@@ -68,7 +78,7 @@ bool database::createTable()
      * с последующим его выполнением.
      * */
     QSqlQuery query;
-    if(!query.exec( "CREATE TABLE " TABLE " ("
+    if(!query.exec( "CREATE TABLE " TABLE "("
                             "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                             TABLE_FNAME     " VARCHAR(255)    NOT NULL,"
                             TABLE_SNAME     " VARCHAR(255)    NOT NULL,"

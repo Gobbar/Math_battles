@@ -40,6 +40,7 @@ public:
         bool restoreDataBase();     // Восстановление базы данных
         void closeDataBase();       // Закрытие базы данных
         bool createTable();         // Создание базы таблицы в базе данных
+        bool deleteDB();
 
     public slots:
         bool inserIntoTable(const QVariantList &data);      // Добавление записей в таблицу
