@@ -4,7 +4,7 @@
 
 
 #include "database.h"
-#include "listmodel.h"
+//#include "listmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
     database database;
     database.connectToDataBase();
 
-    ListModel *model = new ListModel();
+    //ListModel *model = new ListModel();
 
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("myModel", model);
+    //engine.rootContext()->setContextProperty("myModel", model);
     engine.rootContext()->setContextProperty("database", &database);
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

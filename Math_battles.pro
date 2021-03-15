@@ -8,7 +8,6 @@ CONFIG += c++11
 
 SOURCES += \
         database.cpp \
-        listmodel.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -25,5 +24,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    database.h \
-    listmodel.h
+    database.h
