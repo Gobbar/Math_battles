@@ -20,7 +20,6 @@ void database::connectToDataBase()
      * */
     if(!QFile(DATABASE_NAME).exists()){
         QFile::copy(":/" DATABASE_NAME , DATABASE_NAME);
-
     }
     this->openDataBase();
 }
@@ -42,6 +41,7 @@ bool database::openDataBase()
     db.setDatabaseName(DATABASE_NAME);
     if(db.open()){
         return true;
+
     } else {
         return false;
     }
@@ -54,7 +54,14 @@ void database::closeDataBase()
     db.close();
 }
 
-
+void database::showData()
+{
+    QSqlQuery query("SELECT FirstName FROM NameTable");
+    while (query.next()) {
+        QString fName = query.value(0).toString();
+        qDebug()<<fName;
+    }
+}
 
 
 /* Метод для вставки записи в базу данных

@@ -1,5 +1,4 @@
 QT += qml quick sql
-
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.

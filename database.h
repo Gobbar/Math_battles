@@ -40,12 +40,13 @@ public:
         bool restoreDataBase();     // Восстановление базы данных
         void closeDataBase();       // Закрытие базы данных
         bool createTable();         // Создание базы таблицы в базе данных
-        bool deleteDB();
+
 
     public slots:
         bool inserIntoTable(const QVariantList &data);      // Добавление записей в таблицу
         bool inserIntoTable(const QString &fname, const QString &sname, const QString &nik);
         bool removeRecord(const int id); // Удаление записи из таблицы по её id
+        void showData();            // Отражение данных
     };
 
     #endif // DATABASE_H
