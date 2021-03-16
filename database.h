@@ -10,13 +10,17 @@
 #include <QDate>
 #include <QDebug>
 
-#define DATABASE_HOSTNAME   "NameDataBase"
-#define DATABASE_NAME       "Name.db"
+#define DATABASE_HOSTNAME   "tasks_solutions"
+#define DATABASE_NAME       "tasks_solutions.db"
 
-#define TABLE                   "NameTable"         // Название таблицы
-#define TABLE_FNAME             "FisrtName"         // Вторая колонка
-#define TABLE_SNAME             "SurName"           // Третья колонка
-#define TABLE_NIK               "Nik"
+#define TASKS_TABLE             "Tasks"      // Название таблицы заданий
+#define TASKS_TABLE_ID          "id"         // id задания
+#define TASKS_TABLE_NUM         "number"     // номер задания внутри КИМ
+
+#define STUD_TABLE              "Stud_solution" // Название таблицы решений учеников
+#define STUD_TABLE_TASK_ID      "task_id" // id задания
+#define STUD_TABLE_ID           "id" // id решения ученика
+#define STUD_TABLE_MARK         "mark" // оценка учащегося
 
 class database: public QObject
 {
@@ -39,13 +43,11 @@ public:
         bool openDataBase();        // Открытие базы данных
         bool restoreDataBase();     // Восстановление базы данных
         void closeDataBase();       // Закрытие базы данных
-        bool createTable();         // Создание базы таблицы в базе данных
-
 
     public slots:
-        bool inserIntoTable(const QVariantList &data);      // Добавление записей в таблицу
-        bool inserIntoTable(const QString &fname, const QString &sname, const QString &nik);
-        bool removeRecord(const int id); // Удаление записи из таблицы по её id
+       // bool inserIntoTable(const QVariantList &data);      // Добавление записей в таблицу
+        //bool inserIntoTable(const QString &fname, const QString &sname, const QString &nik);
+        //bool removeRecord(const int id); // Удаление записи из таблицы по её id
         void showData();            // Отражение данных
     };
 

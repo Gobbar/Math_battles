@@ -56,78 +56,78 @@ void database::closeDataBase()
 
 void database::showData()
 {
-    QSqlQuery query("SELECT FirstName FROM NameTable");
-    while (query.next()) {
-        QString fName = query.value(0).toString();
-        qDebug()<<fName;
-    }
+//    QSqlQuery query("SELECT");
+//    while (query.next()) {
+//        QString fName = query.value(0).toString();
+//        qDebug()<<fName;
+//    }
 }
 
 
 /* Метод для вставки записи в базу данных
  * */
-bool database::inserIntoTable(const QVariantList &data)
-{
-    /* Запрос SQL формируется из QVariantList,
-     * в который передаются данные для вставки в таблицу.
-     * */
-    QSqlQuery query;
-    /* В начале SQL запрос формируется с ключами,
-     * которые потом связываются методом bindValue
-     * для подстановки данных из QVariantList
-     * */
-    query.prepare("INSERT INTO " TABLE " ( " TABLE_FNAME ", "
-                                             TABLE_SNAME ", "
-                                             TABLE_NIK " ) "
-                  "VALUES (:FName, :SName, :Nik)");
-    query.bindValue(":FName",       data[0].toString());
-    query.bindValue(":SName",       data[1].toString());
-    query.bindValue(":Nik",         data[2].toString());
+//bool database::inserIntoTable(const QVariantList &data)
+//{
+//    /* Запрос SQL формируется из QVariantList,
+//     * в который передаются данные для вставки в таблицу.
+//     * */
+//    QSqlQuery query;
+//    /* В начале SQL запрос формируется с ключами,
+//     * которые потом связываются методом bindValue
+//     * для подстановки данных из QVariantList
+//     * */
+//    query.prepare("INSERT INTO " TABLE " ( " TABLE_FNAME ", "
+//                                             TABLE_SNAME ", "
+//                                             TABLE_NIK " ) "
+//                  "VALUES (:FName, :SName, :Nik)");
+//    query.bindValue(":FName",       data[0].toString());
+//    query.bindValue(":SName",       data[1].toString());
+//    query.bindValue(":Nik",         data[2].toString());
 
-    // После чего выполняется запросом методом exec()
-    if(!query.exec()){
-        qDebug() << "error insert into " << TABLE;
-        qDebug() << query.lastError().text();
-        return false;
-    } else {
-        return true;
-    }
-    return false;
-}
+//    // После чего выполняется запросом методом exec()
+//    if(!query.exec()){
+//        qDebug() << "error insert into " << TABLE;
+//        qDebug() << query.lastError().text();
+//        return false;
+//    } else {
+//        return true;
+//    }
+//    return false;
+//}
 
 /* Второй метод для вставки записи в базу данных
  * */
-bool database::inserIntoTable(const QString &fname, const QString &sname, const QString &nik)
-{
-    QVariantList data;
-    data.append(fname);
-    data.append(sname);
-    data.append(nik);
+//bool database::inserIntoTable(const QString &fname, const QString &sname, const QString &nik)
+//{
+//    QVariantList data;
+//    data.append(fname);
+//    data.append(sname);
+//    data.append(nik);
 
-    if(inserIntoTable(data))
-        return true;
-    else
-        return false;
-}
+//    if(inserIntoTable(data))
+//        return true;
+//    else
+//        return false;
+//}
 
 /* Метод для удаления записи из таблицы
  * */
-bool database::removeRecord(const int id)
-{
-    // Удаление строки из базы данных будет производитсья с помощью SQL-запроса
-    QSqlQuery query;
+//bool database::removeRecord(const int id)
+//{
+//    // Удаление строки из базы данных будет производитсья с помощью SQL-запроса
+//    QSqlQuery query;
 
-    // Удаление производим по id записи, который передается в качестве аргумента функции
-    query.prepare("DELETE FROM " TABLE " WHERE id= :ID ;");
-    query.bindValue(":ID", id);
+//    // Удаление производим по id записи, который передается в качестве аргумента функции
+//    query.prepare("DELETE FROM " TABLE " WHERE id= :ID ;");
+//    query.bindValue(":ID", id);
 
-    // Выполняем удаление
-    if(!query.exec()){
-        qDebug() << "error delete row " << TABLE;
-        qDebug() << query.lastError().text();
-        return false;
-    } else {
-        return true;
-    }
-    return false;
-}
+//    // Выполняем удаление
+//    if(!query.exec()){
+//        qDebug() << "error delete row " << TABLE;
+//        qDebug() << query.lastError().text();
+//        return false;
+//    } else {
+//        return true;
+//    }
+//    return false;
+//}
