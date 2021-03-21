@@ -1,4 +1,4 @@
-QT += qml quick sql
+QT += qml quick widgets sql
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -7,6 +7,7 @@ CONFIG += c++11
 
 SOURCES += \
         database.cpp \
+        imagelist.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -23,4 +24,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    database.h
+    database.h \
+    imagelist.h
+
+DISTFILES +=

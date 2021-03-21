@@ -54,13 +54,25 @@ void database::closeDataBase()
     db.close();
 }
 
-void database::showData()
+void database::showData(QString number)
 {
-//    QSqlQuery query("SELECT");
-//    while (query.next()) {
-//        QString fName = query.value(0).toString();
-//        qDebug()<<fName;
-//    }
+    QStringList strlist;
+    QSqlQuery query(" select s.id, task_id from Tasks t, Stud_solution s where t.number ="+number+" and t.id=s.task_id;");
+    while (query.next()){
+        QString s = query.value(1).toString()+"_"+query.value(0).toString();
+        strlist+=s;
+    }
+    qDebug()<<strlist;
+}
+
+QStringList database::getList(QString number){
+    QStringList strlist;
+    QSqlQuery query(" select s.id, task_id from Tasks t, Stud_solution s where t.number ="+number+" and t.id=s.task_id;");
+    while (query.next()){
+        QString s = query.value(1).toString()+"_"+query.value(0).toString();
+        strlist+=s;
+    }
+    return strlist;
 }
 
 

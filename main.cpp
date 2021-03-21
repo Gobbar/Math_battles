@@ -4,7 +4,10 @@
 
 
 #include "database.h"
+#include "imagelist.h"
 //#include "listmodel.h"
+
+
 
 int main(int argc, char *argv[])
 {
@@ -19,11 +22,11 @@ int main(int argc, char *argv[])
     database.connectToDataBase();
 
     //ListModel *model = new ListModel();
-
-
+    ImageList list_of_tasks;
     QQmlApplicationEngine engine;
     //engine.rootContext()->setContextProperty("myModel", model);
     engine.rootContext()->setContextProperty("database", &database);
+    engine.rootContext()->setContextProperty("list_of_tasks", &list_of_tasks);
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -36,3 +39,5 @@ int main(int argc, char *argv[])
     engine.load(url);
     return app.exec();
 }
+
+
