@@ -18,7 +18,12 @@ void ImageList::show(){
 }
 //переход к следующему элементу
 void ImageList::next_el(){
-    index++;
+    if(index+1<task_list.length()){
+        index++;
+    }
+    else{
+        qDebug()<<"END";
+    }
 }
 //получение текущего элемента
 QString ImageList::current_el(){

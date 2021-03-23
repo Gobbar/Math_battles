@@ -67,7 +67,7 @@ void database::showData(QString number)
 
 QStringList database::getList(QString number){
     QStringList strlist;
-    QSqlQuery query(" select s.id, task_id from Tasks t, Stud_solution s where t.number ="+number+" and t.id=s.task_id;");
+    QSqlQuery query("select s.id, task_id from Tasks t, Stud_solution s where t.number ="+number+" and t.id=s.task_id;");
     while (query.next()){
         QString s = query.value(1).toString()+"_"+query.value(0).toString();
         strlist+=s;
