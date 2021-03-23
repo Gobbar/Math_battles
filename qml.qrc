@@ -30,5 +30,7 @@
         <file>tasks_solutions/15/task/484589.JPG</file>
         <file>tasks_solutions/15/task/506148.JPG</file>
         <file>tasks_solutions/15/task/507175.JPG</file>
+        <file>ModelPages.qml</file>
+        <file>ModelButton.qml</file>
     </qresource>
 </RCC>

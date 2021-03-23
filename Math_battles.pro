@@ -11,6 +11,11 @@ SOURCES += \
 
 RESOURCES += qml.qrc
 
+OTHER_FILES += \
+    main.qml \
+    ModelButton.qml \
+    ModelPages.qml
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
