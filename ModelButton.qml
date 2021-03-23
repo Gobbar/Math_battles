@@ -5,8 +5,8 @@ import QtQuick.Window 2.2
 
 Rectangle{
     id:oneButton
-    height: 70
-    width: 130
+    height: 120
+    width: 230
 
     property alias actionButtonText: actionButton.text;
     signal actionClicked();
@@ -16,8 +16,9 @@ Rectangle{
     Button{
         id:actionButton
         anchors.fill: parent
+        font.pixelSize: 25
         background: Rectangle{
-            color: "red"
+            color: "#ff50f0"
         }
 
         onClicked: {

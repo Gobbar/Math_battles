@@ -7,7 +7,7 @@ import QtQuick.Window 2.2
 ApplicationWindow {
     id:wind
     visible: true
-    color: "#55ffff"
+    color: "#000000"
     width: 700
     height: 1000
     title: qsTr("BestPrilogenieInTheWorld")
@@ -27,7 +27,7 @@ ApplicationWindow {
 
     ModelPages {
         id:startMenu
-        bgColor: "#ff0000"
+       // bgColor: "#b00000"
         header.visible: false
 
         ModelButton {
@@ -44,7 +44,7 @@ ApplicationWindow {
         ModelButton {
             id: toRating
             x:ww/4
-            y:wh/4 + 100
+            y:wh/4 + 150
             actionButtonText: "My_Raiting"
             onActionClicked: {
                 allPages.push(rating);
@@ -54,7 +54,7 @@ ApplicationWindow {
         ModelButton {
             id: toSettings
             x:ww/4
-            y:wh/4 + 200
+            y:wh/4 + 300
             actionButtonText: "My_Settings"
             onActionClicked: {
                 allPages.push(settings);
@@ -64,7 +64,7 @@ ApplicationWindow {
         ModelButton {
             id: toInfo
             x:ww/4
-            y:wh/4 + 300
+            y:wh/4 + 450
             actionButtonText: "Infotmation"
             onActionClicked: {
                 allPages.push(info);
@@ -75,7 +75,7 @@ ApplicationWindow {
     ModelPages {
         id:battle
         visible: false
-        bgColor: "#00ff00"
+        //bgColor: "#00ff00"
         onBackClicked: {
             allPages.pop(startMenu)
         }
@@ -92,8 +92,8 @@ ApplicationWindow {
         }
         ModelButton {
             id: toMission2
-            x:ww/4 + 150
-            y:wh/4
+            x:ww/4
+            y:wh/4 + 200
             actionButtonText: "Start_Mission_2"
             onActionClicked: {
                 allPages.push(mission2);
@@ -106,18 +106,23 @@ ApplicationWindow {
     ModelPages {
         id:rating
         visible: false
-        bgColor: "#0000ff"
+
         onBackClicked: {
             allPages.pop(startMenu)
         }
         Rectangle{
             id:raiting_box
-            width: ww - 100
-            height: wh - 100
-            anchors.centerIn: parent
+            width: ww/2
+            height: wh/2
+            anchors.top: parent.header.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: "#f0f0f0"
+
+
             Text{
                 id: raiting_text
-                font.pixelSize: 20
+                font.pixelSize: 25
+
                 text: qsTr("Здесь будет \n рейтинг по \n заданиям")
             }
 
@@ -127,7 +132,7 @@ ApplicationWindow {
     ModelPages {
         id:settings
         visible: false
-        bgColor: "#f0f0f0"
+       // bgColor: "#f0f0f0"
         onBackClicked: {
             allPages.pop(startMenu)
         }
@@ -147,7 +152,7 @@ ApplicationWindow {
     ModelPages {
         id:info
         visible: false
-        bgColor: "#ff00ff"
+        //bgColor: "#ff00ff"
         onBackClicked: {
             allPages.pop(startMenu)
         }
@@ -171,13 +176,24 @@ ApplicationWindow {
     ModelPages{
         id:mission1
         visible: false
-        bgColor: "#0faaf0"
+       // bgColor: "#0faaf0"
         height: wh / 4
         width: ww / 4
         anchors.left: parent.left
         anchors.top: parent.top
         onBackClicked: {
             allPages.pop(battle)
+        }
+
+        ModelButton{
+            id:show_it1
+            height: 80
+            width: 100
+            actionButtonText: "Show"
+            x: 100
+            y: 100
+
+
         }
 
     }
@@ -185,7 +201,7 @@ ApplicationWindow {
     ModelPages{
         id:mission2
         visible: false
-        bgColor: "#ffaaf0"
+        //bgColor: "#ffaaf0"
         height: wh / 4
         width: ww / 4
         anchors.left: parent.left
@@ -194,6 +210,16 @@ ApplicationWindow {
             allPages.pop(battle)
         }
 
+        ModelButton{
+            id:show_it2
+            height: 80
+            width: 120
+            actionButtonText: "Show"
+            x: 100
+            y: 100
+
+
+        }
     }
 
 
