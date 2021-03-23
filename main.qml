@@ -85,6 +85,9 @@ ApplicationWindow {
             actionButtonText: "Start_Mission_1"
             onActionClicked: {
                 allPages.push(mission1);
+                list_of_tasks.set_list(database.getList("13"));
+                list_of_tasks.set_number("13");
+
             }
 
         }
@@ -177,7 +180,26 @@ ApplicationWindow {
         onBackClicked: {
             allPages.pop(battle)
         }
+       Button{
+               text: qsTr("Показать картинки")
+               x: 150
+               onClicked: {
+                   list_of_tasks.next_el();
+                   list_of_tasks.show_el();
 
+                   var component1 = Qt.createComponent("im.qml");
+                   var obj1 = component1.createObject(mission1, {x: 0, y:20 });
+                   obj1.source = list_of_tasks.get_task();
+
+                   var component2 = Qt.createComponent("im.qml");
+                   var obj2 = component2.createObject(mission1, {x: 0, y:100 });
+                   obj2.source = list_of_tasks.get_sol();
+
+                   var component3 = Qt.createComponent("im.qml");
+                   var obj3 = component3.createObject(mission1, {x: 0, y:150 });
+                   obj3.source = list_of_tasks.get_st_sol();
+               }
+        }
     }
 
     ModelPages{
