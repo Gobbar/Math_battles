@@ -11,6 +11,12 @@ ApplicationWindow {
     width: 700
     height: 1000
     title: qsTr("BestPrilogenieInTheWorld")
+    property var obj1;
+    property var obj2;
+    property var obj3;
+    property var component1;
+    property var component2;
+    property var component3;
     Button{
         onClicked: database.showData()
     }
@@ -194,20 +200,29 @@ ApplicationWindow {
             actionButtonText: "Show"
             x: 10
             y: 10
+
+
             onActionClicked: {
+                if (obj1){
+                    obj1.destroy();
+                    obj2.destroy();
+                    obj3.destroy();
+                }
+
+
                 list_of_tasks.next_el();
                 list_of_tasks.show_el();
 
-                var component1 = Qt.createComponent("im.qml");
-                var obj1 = component1.createObject(mission1, {x: 0, y:200 });
+                component1 = Qt.createComponent("im.qml");
+                obj1 = component1.createObject(mission1, {x: 0, y:200 });
                 obj1.source = list_of_tasks.get_task();
 
-                var component2 = Qt.createComponent("im.qml");
-                var obj2 = component2.createObject(mission1, {x: 0, y:400 });
+                component2 = Qt.createComponent("im.qml");
+                obj2 = component2.createObject(mission1, {x: 0, y:400 });
                 obj2.source = list_of_tasks.get_sol();
 
-                var component3 = Qt.createComponent("im.qml");
-                var obj3 = component3.createObject(mission1, {x: 0, y:600 });
+                component3 = Qt.createComponent("im.qml");
+                obj3 = component3.createObject(mission1, {x: 0, y:600 });
                 obj3.source = list_of_tasks.get_st_sol();
             }
 
