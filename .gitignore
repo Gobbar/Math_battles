@@ -11,3 +11,7 @@
 
 # QtCreator local machine specific files for imported projects
 *creator.user*
+
+#VS
+.vs/
+.vs/*
