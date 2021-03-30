@@ -9,6 +9,8 @@
 #include <QFile>
 #include <QDate>
 #include <QDebug>
+#include <QStringList>
+#include <QList>
 
 #define DATABASE_HOSTNAME   "tasks_solutions"
 #define DATABASE_NAME       "tasks_solutions.db"
@@ -27,6 +29,7 @@ class database: public QObject
     Q_OBJECT
 public:
     explicit database(QObject *parent = 0);
+
         ~database();
         /* Методы для непосредственной работы с классом
          * Подключение к базе данных и вставка записей в таблицу
@@ -45,10 +48,13 @@ public:
         void closeDataBase();       // Закрытие базы данных
 
     public slots:
+
        // bool inserIntoTable(const QVariantList &data);      // Добавление записей в таблицу
         //bool inserIntoTable(const QString &fname, const QString &sname, const QString &nik);
         //bool removeRecord(const int id); // Удаление записи из таблицы по её id
-        void showData();            // Отражение данных
+        void showData(QString number);            // Отражение данных
+        QStringList getList(QString number);
+        QList<int> getMarks(QString number);
     };
 
     #endif // DATABASE_H
