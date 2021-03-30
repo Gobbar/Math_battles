@@ -7,18 +7,22 @@ Rectangle{
     id:oneButton
     height: 120
     width: 230
-
+    property alias backgroungRectColor: oneButton.color
     property alias actionButtonText: actionButton.text;
     signal actionClicked();
 
+
+    color: "#0d7377"
 
 
     Button{
         id:actionButton
         anchors.fill: parent
+
+
         font.pixelSize: 25
         background: Rectangle{
-            color: "#ff50f0"
+            color: backgroungRectColor
         }
 
         onClicked: {
