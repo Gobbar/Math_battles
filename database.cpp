@@ -75,6 +75,17 @@ QStringList database::getList(QString number){
     return strlist;
 }
 
+QList<int> database::getMarks(QString number){
+    QList<int> marks;
+    QSqlQuery query("select mark from Tasks t, Stud_solution s where t.number ="+number+" and t.id=s.task_id;");
+    while (query.next()){
+        int m = query.value(0).toInt();
+        marks.append(m);
+    }
+    return marks;
+
+}
+
 
 /* Метод для вставки записи в базу данных
  * */

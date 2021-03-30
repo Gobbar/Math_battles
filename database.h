@@ -10,6 +10,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QStringList>
+#include <QList>
 
 #define DATABASE_HOSTNAME   "tasks_solutions"
 #define DATABASE_NAME       "tasks_solutions.db"
@@ -53,6 +54,7 @@ public:
         //bool removeRecord(const int id); // Удаление записи из таблицы по её id
         void showData(QString number);            // Отражение данных
         QStringList getList(QString number);
+        QList<int> getMarks(QString number);
     };
 
     #endif // DATABASE_H

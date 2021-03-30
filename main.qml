@@ -94,6 +94,7 @@ ApplicationWindow {
             onActionClicked: {
                 allPages.push(mission1);
                 list_of_tasks.set_list(database.getList("13"));
+                list_of_tasks.set_marks(database.getMarks("13"));
                 list_of_tasks.set_number("13");
             }
 
@@ -197,21 +198,109 @@ ApplicationWindow {
             id:show_it1
             height: 80
             width: 100
-            actionButtonText: "Show"
+            actionButtonText: "0"
             x: 10
             y: 10
 
 
             onActionClicked: {
+
                 if (obj1){
                     obj1.destroy();
                     obj2.destroy();
                     obj3.destroy();
                 }
 
+                if(list_of_tasks.check_last()){
+                    list_of_tasks.next_el();
+                    list_of_tasks.show_el();
+                    list_of_tasks.check_marks(0);
+                }
+                else{
+                    allPages.push(endgame);
+                }
 
-                list_of_tasks.next_el();
-                list_of_tasks.show_el();
+                component1 = Qt.createComponent("im.qml");
+                obj1 = component1.createObject(mission1, { y:200 });
+                obj1.source = list_of_tasks.get_task();
+
+                component2 = Qt.createComponent("im_sol.qml");
+                obj2 = component2.createObject(mission1, { y:260 });
+                obj2.source = list_of_tasks.get_sol();
+
+                component3 = Qt.createComponent("im_stud_sol.qml");
+                obj3 = component3.createObject(mission1, {y:395 });
+                obj3.source = list_of_tasks.get_st_sol();
+            }
+
+        }
+        ModelButton{
+            id:show_it2
+            height: 80
+            width: 100
+            actionButtonText: "1"
+            x: 110
+            y: 10
+
+
+            onActionClicked: {
+
+                if (obj1){
+                    obj1.destroy();
+                    obj2.destroy();
+                    obj3.destroy();
+                }
+
+                if(list_of_tasks.check_last()){
+                    list_of_tasks.check_marks(1);
+                    list_of_tasks.next_el();
+                    list_of_tasks.show_el();
+
+                }
+                else{
+                    allPages.push(endgame);
+
+                }
+
+                component1 = Qt.createComponent("im.qml");
+                obj1 = component1.createObject(mission1, { y:200 });
+                obj1.source = list_of_tasks.get_task();
+
+                component2 = Qt.createComponent("im_sol.qml");
+                obj2 = component2.createObject(mission1, { y:260 });
+                obj2.source = list_of_tasks.get_sol();
+
+                component3 = Qt.createComponent("im_stud_sol.qml");
+                obj3 = component3.createObject(mission1, {y:395 });
+                obj3.source = list_of_tasks.get_st_sol();
+            }
+
+        }
+        ModelButton{
+            id:show_it3
+            height: 80
+            width: 100
+            actionButtonText: "2"
+            x: 210
+            y: 10
+
+
+            onActionClicked: {
+
+                if (obj1){
+                    obj1.destroy();
+                    obj2.destroy();
+                    obj3.destroy();
+                }
+
+                if(list_of_tasks.check_last()){
+                    list_of_tasks.next_el();
+                    list_of_tasks.show_el();
+                    list_of_tasks.check_marks(2);
+                }
+                else{
+                    allPages.push(endgame);
+                }
 
                 component1 = Qt.createComponent("im.qml");
                 obj1 = component1.createObject(mission1, { y:200 });
@@ -228,7 +317,9 @@ ApplicationWindow {
 
         }
 
+
     }
+
 
     ModelPages{
 
@@ -244,7 +335,7 @@ ApplicationWindow {
         }
 
         ModelButton{
-            id:show_it2
+            id:show_it4
             height: 80
             width: 120
             actionButtonText: "Show"
@@ -255,7 +346,31 @@ ApplicationWindow {
         }
     }
 
+    ModelPages {
+        id:endgame
+        visible: false
+        //bgColor: "#ff00ff"
+        onBackClicked: {
+            allPages.pop(startMenu)
+        }
 
+        Rectangle{
+            width: 400
+            height: 400
+            anchors.centerIn: parent
+
+
+            Text {
+                id: result
+                font.pixelSize: 20
+                Component.onCompleted: {
+                    text=list_of_tasks.get_res();
+                }
+            }
+
+
+        }
+    }
 
 
 }
