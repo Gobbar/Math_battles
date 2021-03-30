@@ -21,7 +21,7 @@ Page{
         height: 160
         anchors.left: parent.left
         anchors.right: parent.right
-        z: -1
+        z: 5
 
 
         Button{
@@ -35,7 +35,7 @@ Page{
             anchors.margins: 30
 
             background: Rectangle{
-                color: "#0e9377"
+                color: "#111111"
             }
 
             onClicked: {
