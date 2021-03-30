@@ -2,5 +2,5 @@ import QtQuick 2.0
 
 Image {
     width: 300;
-    height: 60;
+    height: 150;
 }

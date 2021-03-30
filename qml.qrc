@@ -33,5 +33,7 @@
         <file>im.qml</file>
         <file>ModelButton.qml</file>
         <file>ModelPages.qml</file>
+        <file>im_sol.qml</file>
+        <file>im_stud_sol.qml</file>
     </qresource>
 </RCC>

@@ -214,15 +214,15 @@ ApplicationWindow {
                 list_of_tasks.show_el();
 
                 component1 = Qt.createComponent("im.qml");
-                obj1 = component1.createObject(mission1, {x: 0, y:200 });
+                obj1 = component1.createObject(mission1, { y:200 });
                 obj1.source = list_of_tasks.get_task();
 
-                component2 = Qt.createComponent("im.qml");
-                obj2 = component2.createObject(mission1, {x: 0, y:400 });
+                component2 = Qt.createComponent("im_sol.qml");
+                obj2 = component2.createObject(mission1, { y:260 });
                 obj2.source = list_of_tasks.get_sol();
 
-                component3 = Qt.createComponent("im.qml");
-                obj3 = component3.createObject(mission1, {x: 0, y:600 });
+                component3 = Qt.createComponent("im_stud_sol.qml");
+                obj3 = component3.createObject(mission1, {y:395 });
                 obj3.source = list_of_tasks.get_st_sol();
             }
 
@@ -231,6 +231,7 @@ ApplicationWindow {
     }
 
     ModelPages{
+
         id:mission2
         visible: false
         //bgColor: "#ffaaf0"
@@ -253,6 +254,8 @@ ApplicationWindow {
 
         }
     }
+
+
 
 
 }
