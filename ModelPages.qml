@@ -7,7 +7,7 @@ import QtQuick.Window 2.2
 Page{
     id:onePage
     property alias bgColor: backgroundColorPage.color
-    bgColor: "#b0d0d0"
+    bgColor: "#323232"
     signal backClicked();
     anchors.fill: parent
 
@@ -21,6 +21,7 @@ Page{
         height: 160
         anchors.left: parent.left
         anchors.right: parent.right
+        z: -1
 
 
         Button{
@@ -34,7 +35,7 @@ Page{
             anchors.margins: 30
 
             background: Rectangle{
-                color: "#c0c0c0"
+                color: "#0e9377"
             }
 
             onClicked: {

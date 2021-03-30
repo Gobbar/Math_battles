@@ -194,13 +194,16 @@ ApplicationWindow {
             allPages.pop(battle)
         }
 
-        ModelButton{
+
+
+        ModelButton {
             id:show_it1
             height: 80
             width: 100
             actionButtonText: "0"
-            x: 10
-            y: 10
+            x: 20
+            y: -50
+            z: 100
 
 
             onActionClicked: {
@@ -239,8 +242,9 @@ ApplicationWindow {
             height: 80
             width: 100
             actionButtonText: "1"
-            x: 110
-            y: 10
+            x: 140
+            y: -50
+            z: 100
 
 
             onActionClicked: {
@@ -281,8 +285,9 @@ ApplicationWindow {
             height: 80
             width: 100
             actionButtonText: "2"
-            x: 210
-            y: 10
+            x: 260
+            y: -50
+            z: 100
 
 
             onActionClicked: {
@@ -316,9 +321,9 @@ ApplicationWindow {
             }
 
         }
+        }
 
 
-    }
 
 
     ModelPages{
