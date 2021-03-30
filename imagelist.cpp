@@ -64,7 +64,7 @@ QString ImageList::get_task(){
 }
 
 QString ImageList::get_res(){
-    qDebug()<<tres;
+    qDebug()<<"aaaa"<<tres;
     return QString::number(tres);
 }
 
