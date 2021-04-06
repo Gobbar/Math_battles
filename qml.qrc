@@ -35,5 +35,6 @@
         <file>ModelPages.qml</file>
         <file>im_sol.qml</file>
         <file>im_stud_sol.qml</file>
+        <file>text1.qml</file>
     </qresource>
 </RCC>

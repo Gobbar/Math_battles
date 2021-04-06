@@ -26,8 +26,6 @@ Page{
 
 
 
-
-
         Button{
             id:backButton
             text: "<<"
@@ -41,6 +39,7 @@ Page{
             background: Rectangle{
                 color: "#0e9377"
                 radius: 20
+
             }
 
             onClicked: {

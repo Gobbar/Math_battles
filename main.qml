@@ -18,9 +18,7 @@ ApplicationWindow {
     property var component1;
     property var component2;
     property var component3;
-    Button{
-        onClicked: database.showData()
-    }
+
 
     property int wh: wind.height
     property int ww: wind.width
@@ -29,7 +27,6 @@ ApplicationWindow {
         id:allPages
         anchors.fill:parent
         initialItem: startMenu
-
     }
 
     ModelPages {
@@ -230,6 +227,11 @@ ApplicationWindow {
                 }
                 else{
                     allPages.push(endgame);
+                    component1 = Qt.createComponent("text1.qml");
+                    obj1 = component1.createObject(endgame, {y:200});
+                    obj1.text="RES:"+list_of_tasks.get_res();
+
+
                 }
 
                 component1 = Qt.createComponent("im.qml");
@@ -272,6 +274,10 @@ ApplicationWindow {
                 }
                 else{
                     allPages.push(endgame);
+                    component1 = Qt.createComponent("text1.qml");
+                    obj1 = component1.createObject(endgame, {y:200});
+                    obj1.text="RES:"+list_of_tasks.get_res();
+
 
                 }
 
@@ -314,6 +320,9 @@ ApplicationWindow {
                 }
                 else{
                     allPages.push(endgame);
+                    component1 = Qt.createComponent("text1.qml");
+                    obj1 = component1.createObject(endgame, {y:200});
+                    obj1.text="RES:"+list_of_tasks.get_res();
                 }
 
                 component1 = Qt.createComponent("im.qml");
@@ -368,22 +377,6 @@ ApplicationWindow {
             allPages.pop(startMenu)
         }
 
-        Rectangle{
-            width: 400
-            height: 400
-            anchors.centerIn: parent
-
-
-            Text {
-                id: result
-                font.pixelSize: 20
-                Component.onCompleted: {
-                    text=list_of_tasks.get_res();
-                }
-            }
-
-
-        }
     }
 
 
