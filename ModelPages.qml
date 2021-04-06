@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Window 2.2
 
 
+
 Page{
     id:onePage
     property alias bgColor: backgroundColorPage.color
@@ -18,24 +19,28 @@ Page{
     header: Rectangle{
         id:headerPage
         color:bgColor
-        height: 160
+        height: 80
         anchors.left: parent.left
         anchors.right: parent.right
-        z: -1
+        z: 5
+
+
+
 
 
         Button{
             id:backButton
-            text: "<<<"
-            font.pixelSize: 60
-            height: 100
-            width: 140
+            text: "<<"
+            font.pixelSize: 30
+            height: 50
+            width: 75
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.margins: 30
+            anchors.margins: 15
 
             background: Rectangle{
                 color: "#0e9377"
+                radius: 20
             }
 
             onClicked: {

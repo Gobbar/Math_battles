@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Window 2.2
 
 
+
 ApplicationWindow {
     id:wind
     visible: true
@@ -38,8 +39,9 @@ ApplicationWindow {
 
         ModelButton {
             id: toStartBattle
-            x:ww/4
-            y:wh/4
+            //x:ww/4
+            anchors.horizontalCenter: parent.horizontalCenter
+            y:wh/5
             actionButtonText: "Start_Battle"
             onActionClicked: {
                 allPages.push(battle);
@@ -49,8 +51,9 @@ ApplicationWindow {
 
         ModelButton {
             id: toRating
-            x:ww/4
-            y:wh/4 + 150
+            //x:ww/4
+            anchors.horizontalCenter: parent.horizontalCenter
+            y:wh/5 + 150
             actionButtonText: "My_Raiting"
             onActionClicked: {
                 allPages.push(rating);
@@ -59,8 +62,9 @@ ApplicationWindow {
 
         ModelButton {
             id: toSettings
-            x:ww/4
-            y:wh/4 + 300
+            //x:ww/4
+            anchors.horizontalCenter: parent.horizontalCenter
+            y:wh/5 + 300
             actionButtonText: "My_Settings"
             onActionClicked: {
                 allPages.push(settings);
@@ -69,8 +73,9 @@ ApplicationWindow {
 
         ModelButton {
             id: toInfo
-            x:ww/4
-            y:wh/4 + 450
+            //x:ww/4
+            anchors.horizontalCenter: parent.horizontalCenter
+            y:wh/5 + 450
             actionButtonText: "Infotmation"
             onActionClicked: {
                 allPages.push(info);
@@ -88,8 +93,9 @@ ApplicationWindow {
 
         ModelButton {
             id: toMission1
-            x:ww/4
-            y:wh/4
+            //x:ww/4
+            anchors.horizontalCenter: parent.horizontalCenter
+            y:wh/5
             actionButtonText: "Start_Mission_1"
             onActionClicked: {
                 allPages.push(mission1);
@@ -101,8 +107,9 @@ ApplicationWindow {
         }
         ModelButton {
             id: toMission2
-            x:ww/4
-            y:wh/4 + 200
+            //x:ww/4
+            anchors.horizontalCenter: parent.horizontalCenter
+            y:wh/5 + 150
             actionButtonText: "Start_Mission_2"
             onActionClicked: {
                 allPages.push(mission2);
@@ -151,6 +158,8 @@ ApplicationWindow {
             height: wh - 100
             anchors.centerIn: parent
             CheckBox{
+                font.pixelSize:  30
+                anchors.centerIn: parent
                 text: qsTr("Показывать решение ")
                 checked: true
             }
@@ -198,11 +207,11 @@ ApplicationWindow {
 
         ModelButton {
             id:show_it1
-            height: 80
-            width: 100
+            height: 60
+            width: 60
             actionButtonText: "0"
             x: 20
-            y: -50
+            y: 0
             z: 100
 
 
@@ -239,11 +248,11 @@ ApplicationWindow {
         }
         ModelButton{
             id:show_it2
-            height: 80
-            width: 100
+            height: 60
+            width: 60
             actionButtonText: "1"
-            x: 140
-            y: -50
+            x: 100
+            y: 0
             z: 100
 
 
@@ -282,11 +291,11 @@ ApplicationWindow {
         }
         ModelButton{
             id:show_it3
-            height: 80
-            width: 100
+            height: 60
+            width: 60
             actionButtonText: "2"
-            x: 260
-            y: -50
+            x: 180
+            y: 0
             z: 100
 
 

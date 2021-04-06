@@ -13,16 +13,21 @@ Rectangle{
 
 
     color: "#0d7377"
+    radius: 20
 
 
     Button{
         id:actionButton
-        anchors.fill: parent
+        height: parent.height * 0.9
+        width: parent.width * 0.9
+        anchors.centerIn: parent
+
 
 
         font.pixelSize: 25
         background: Rectangle{
             color: backgroungRectColor
+            radius: 30
         }
 
         onClicked: {
